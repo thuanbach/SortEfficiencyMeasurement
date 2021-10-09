@@ -7,9 +7,14 @@
 //============================================================================
 
 #include <iostream>
+
+#include "efficiency_measurement.h"
+
 using namespace std;
 
 int main() {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+
+	measure_sorting_efficiency();
+
 	return 0;
 }
