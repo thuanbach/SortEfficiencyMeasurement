@@ -40,7 +40,7 @@ const unsigned int COLUMN_WIDTH_PER_ARRAY = 11;
 const unsigned int TOTAL_TABLE_WIDTH = FIRST_COLUMN_WIDTH
 		+ COLUMN_WIDTH_PER_ARRAY * NUMBER_OF_ARRAYS_PER_SIZE;
 
-unsigned int measure_array_sorting(unsigned int *arr, unsigned int size) {
+unsigned int measure_array_sorting(unsigned int arr[], unsigned int size) {
 
 	auto t1 = chrono::high_resolution_clock::now();
 
@@ -69,7 +69,7 @@ void print_execution_time(unsigned int n,
 	cout << TABLE_VERTICAL_BORDER_CHARACTER << setw(FIRST_COLUMN_WIDTH)
 			<< BLANK_CHARACTER;
 
-	for (unsigned i = 0; i < NUMBER_OF_ARRAYS_PER_SIZE; i++) {
+	for (unsigned int i = 0; i < NUMBER_OF_ARRAYS_PER_SIZE; i++) {
 		cout << TABLE_VERTICAL_BORDER_CHARACTER << left
 				<< setw(ARRAY_HEADER_PADDING) << BLANK_CHARACTER
 				<< setw(ARRAY_HEADER_WIDTH - ARRAY_HEADER_PADDING)
@@ -85,7 +85,7 @@ void print_execution_time(unsigned int n,
 
 
 	// Print execution time for each array ordering.
-	for (unsigned i = 0; i < NUMBER_OF_ARRAY_ORDERING; i++) {
+	for (unsigned int i = 0; i < NUMBER_OF_ARRAY_ORDERING; i++) {
 		cout << TABLE_VERTICAL_BORDER_CHARACTER << setw(FIRST_COLUMN_WIDTH)
 				<< left;
 
@@ -116,7 +116,7 @@ void measure_sorting(unsigned int n) {
 
 	unsigned int execution_time[NUMBER_OF_ARRAY_ORDERING][NUMBER_OF_ARRAYS_PER_SIZE];
 
-	for (unsigned j = 0; j < NUMBER_OF_ARRAYS_PER_SIZE; j++) {
+	for (unsigned int j = 0; j < NUMBER_OF_ARRAYS_PER_SIZE; j++) {
 
 		for (unsigned int k = 0; k < n; k++) {
 			arr[j] = rand();
