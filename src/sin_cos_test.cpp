@@ -102,22 +102,22 @@ TestDataSet initSinDataSetForPathCoverage() {
 	TestDataSet sinTestDataSet;
 
 	sinTestDataSet.degrees[0] = -30;
-	sinTestDataSet.expected_results[0] = 4999;
+	sinTestDataSet.expected_results[0] = -4999;
 
 	sinTestDataSet.degrees[1] = -60;
-	sinTestDataSet.expected_results[1] = 8660;
+	sinTestDataSet.expected_results[1] = -8660;
 
 	sinTestDataSet.degrees[2] = -120;
-	sinTestDataSet.expected_results[2] = 8660;
+	sinTestDataSet.expected_results[2] = -8660;
 
 	sinTestDataSet.degrees[3] = -160;
-	sinTestDataSet.expected_results[3] = 3419;
+	sinTestDataSet.expected_results[3] = -3419;
 
 	sinTestDataSet.degrees[4] = -210;
-	sinTestDataSet.expected_results[4] = -4999;
+	sinTestDataSet.expected_results[4] = 4999;
 
 	sinTestDataSet.degrees[5] = -240;
-	sinTestDataSet.expected_results[5] = -8660;
+	sinTestDataSet.expected_results[5] = 8660;
 
 	sinTestDataSet.degrees[6] = 30;
 	sinTestDataSet.expected_results[6] = 4999;
@@ -153,10 +153,10 @@ TestDataSet initSinDataSetForBoundaryConditions() {
 	sinTestDataSet.expected_results[2] = 7071;
 
 	sinTestDataSet.degrees[3] = -45;
-	sinTestDataSet.expected_results[3] = 7071;
+	sinTestDataSet.expected_results[3] = -7071;
 
 	sinTestDataSet.degrees[4] = -90;
-	sinTestDataSet.expected_results[4] = 9999;
+	sinTestDataSet.expected_results[4] = -9999;
 
 	sinTestDataSet.degrees[5] = 90;
 	sinTestDataSet.expected_results[5] = 9999;
@@ -168,7 +168,7 @@ TestDataSet initSinDataSetForBoundaryConditions() {
 	sinTestDataSet.expected_results[7] = 0;
 
 	sinTestDataSet.degrees[8] = -405;
-	sinTestDataSet.expected_results[8] = 7071;
+	sinTestDataSet.expected_results[8] = -7071;
 
 	sinTestDataSet.degrees[9] = 405;
 	sinTestDataSet.expected_results[9] = 7071;
@@ -195,7 +195,7 @@ TestDataSet initSinDataSetForBoundaryConditions() {
 }
 
 void testSinMethodWithBoundaryCondition() {
-	unsigned int number_of_tests = 15;
+	unsigned int number_of_tests = 16;
 
 	TestDataSet sinTestDataSet = initSinDataSetForBoundaryConditions();
 
@@ -243,7 +243,7 @@ void testCosMethodWithPathCoverage() {
 }
 
 void testCosMethodWithBoudaryConditions() {
-	const unsigned int NUBMER_OF_TESTS = 15;
+	const unsigned int NUBMER_OF_TESTS = 16;
 
 	TestDataSet sinDataSet = initSinDataSetForBoundaryConditions();
 
