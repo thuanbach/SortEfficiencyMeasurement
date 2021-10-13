@@ -1,8 +1,11 @@
 /*
- * sin_cos_test.cpp
+ *  sin_cos_test.cpp
  *
  *  Created on: Oct 10, 2021
- *      Author: Thuan Bach
+ *
+ *  Author: Thuan Bach
+ *
+ *
  */
 
 #include <iostream>
@@ -10,20 +13,52 @@
 
 using namespace std;
 
+// Declare the  method sin(x) to be tested and implemented in sin_cos.cpp
 int sin(int x);
+
+// Declare the  method sin(x) to be tested and implemented in sin_cos.cpp
 int cos(int x);
 
-const unsigned int MAXIUM_OF_TEST_CASES = 100;
+// Define maximum of test cases in a TestDataSet object
+const unsigned int MAXIMUM_OF_TEST_CASES = 100;
 
+// Define a constant string for the sine method's name
 const string SIN_METHOD = "sin";
+
+// Define a constant string for the consine method's name
 const string COS_METHOD = "cos";
 
+/**
+ * Define a object to store a test data set.
+ * It includes three arrays.
+ * One is for storing degrees to be tested
+ *
+ */
 struct TestDataSet {
-	int degrees[MAXIUM_OF_TEST_CASES];
-	int expected_results[MAXIUM_OF_TEST_CASES];
-	int actual_results[MAXIUM_OF_TEST_CASES];
+	/**
+	 * An array to store degrees to be tested
+	 */
+	int degrees[MAXIMUM_OF_TEST_CASES];
+
+	/**
+	 * An array to store expected result for each degree tested
+	 */
+	int expected_results[MAXIMUM_OF_TEST_CASES];
+
+	/**
+	 * An array to store the actual result for each degree tested
+	 */
+	int actual_results[MAXIMUM_OF_TEST_CASES];
 };
 
+/**
+ * Verify the test result by comparing the expected result and actual result and print to the console in the table format
+ *
+ * @param: methodName The method that is used to execute the test data: sin(x) or cos(x)
+ * @param: testData	 The object that holds test data and result
+ *
+ * @return: N/A
+ */
 void verifyResultAndPrintToConsole(string methodName,
 		const TestDataSet &testData, unsigned int nr_of_tests) {
 	unsigned int PADDING = 10;
@@ -84,6 +119,15 @@ void verifyResultAndPrintToConsole(string methodName,
 			<< PLUS_CHARACTER << setfill(BLANK_CHARACTER) << endl;
 }
 
+/**
+ * Execute test data defined in the TestDataSet object by the method defined in the parameter.
+ * Then store the result in the property "actual_results" of the TestDataSet object
+ *
+ * @param: method_name The method will be invoked for the test: cos(x) or sin(x)
+ * @param: testDataSet The object to store degrees to be tested and the result of execution.
+ *
+ * @return: N/A
+ */
 void runTestSuite(string method_name, TestDataSet &testDataSet,
 		unsigned int nr_of_tests) {
 
@@ -98,6 +142,10 @@ void runTestSuite(string method_name, TestDataSet &testDataSet,
 	verifyResultAndPrintToConsole(method_name, testDataSet, nr_of_tests);
 }
 
+/**
+ *  Initiate test data set for the sin method with path coverage
+ *   @return: a TestDataSet object that contains a list of degrees to be tested and expected results
+ */
 TestDataSet initSinDataSetForPathCoverage() {
 	TestDataSet sinTestDataSet;
 
@@ -139,6 +187,13 @@ TestDataSet initSinDataSetForPathCoverage() {
 
 	return sinTestDataSet;
 }
+
+/**
+ * Initiate test data set for the sin method with path coverage
+ *
+ *  @param: N/A
+ *  @return: a TestDataSet object that contains a list of degrees to be tested and expected results
+ */
 
 TestDataSet initSinDataSetForBoundaryConditions() {
 	TestDataSet sinTestDataSet;
@@ -194,6 +249,12 @@ TestDataSet initSinDataSetForBoundaryConditions() {
 	return sinTestDataSet;
 }
 
+/**
+ *	Test the sine method with boundary conditions
+ *
+ *	@param: N/A
+ *	@return: N/A
+ */
 void testSinMethodWithBoundaryCondition() {
 	unsigned int number_of_tests = 16;
 
@@ -203,6 +264,12 @@ void testSinMethodWithBoundaryCondition() {
 
 }
 
+/**
+ *	Test the sine method with path coverage
+ *
+ *	@param: N/A
+ *	@return: N/A
+ */
 void testSinMethodWithPathCoverage() {
 	unsigned int number_of_tests = 12;
 
@@ -211,6 +278,9 @@ void testSinMethodWithPathCoverage() {
 	runTestSuite(SIN_METHOD, sinTestDataSet, number_of_tests);
 }
 
+/**
+ * Initiate
+ */
 TestDataSet initCosDataSetFromSinDataSet(const TestDataSet &sinDataSet,
 		unsigned int number_of_tests) {
 
@@ -218,7 +288,7 @@ TestDataSet initCosDataSetFromSinDataSet(const TestDataSet &sinDataSet,
 
 	/**
 	 * cos(x) = sin(90+x). Thus, to initiate the test data set for cosine method,
-	 * we will use the path coverage data set for sin method, then for each data, we minus 90.
+	 * we will use the test data set for sin method. For each sine test data, we minus 90.
 	 * That will ensure that all path coverage for the cosine method will be covered as the sin
 	 * method's.
 	 */
@@ -230,6 +300,13 @@ TestDataSet initCosDataSetFromSinDataSet(const TestDataSet &sinDataSet,
 	return cosDataSet;
 }
 
+/**
+ * Test the cosine method with path coverage
+ *
+ *  @param: N/A
+ *  @return: N/A
+ *
+ */
 void testCosMethodWithPathCoverage() {
 	const unsigned int NUBMER_OF_TESTS = 12;
 
@@ -242,6 +319,13 @@ void testCosMethodWithPathCoverage() {
 
 }
 
+/**
+ * Test the cosine method with boundary conditions
+ *
+ *  @param: N/A
+ *  @return: N/A
+ *
+ */
 void testCosMethodWithBoudaryConditions() {
 	const unsigned int NUBMER_OF_TESTS = 16;
 
@@ -254,12 +338,28 @@ void testCosMethodWithBoudaryConditions() {
 
 }
 
+/**
+ *
+ * Implement a white-box test for the method sin(x)
+ * It includes 2 kinds of test cases: one for path coverage and one for boundary conditions
+ *
+ *  @param: N/A
+ *  @return: N/A
+ */
 void runTestSuiteForSinMethod() {
 	testSinMethodWithPathCoverage();
 
 	testSinMethodWithBoundaryCondition();
 }
 
+/**
+ *
+ * Implement a white-box test for the method cos(x).
+ * It includes 2 kinds of test cases: one for path coverage and one for boundary conditions
+ *
+ *  @param: N/A
+ *  @return: N/A
+ */
 void runTestSuiteForCosMethod() {
 	testCosMethodWithPathCoverage();
 
