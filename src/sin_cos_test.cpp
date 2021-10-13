@@ -1,10 +1,11 @@
 /*
  *  sin_cos_test.cpp
  *
- *  Created on: Oct 10, 2021
+ *  Created on: October 10, 2021
  *
  *  Author: Thuan Bach
  *
+ *  The purpose of this module is to implement a white-box test for two functionalities defined sin_cos.cpp: sin(x), and cos(x)
  *
  */
 
@@ -19,20 +20,25 @@ int sin(int x);
 // Declare the  method sin(x) to be tested and implemented in sin_cos.cpp
 int cos(int x);
 
-// Define maximum of test cases in a TestDataSet object
+// Define the maximum of test cases in a TestDataSet object
 const unsigned int MAXIMUM_OF_TEST_CASES = 100;
 
 // Define a constant string for the sine method's name
 const string SIN_METHOD = "sin";
 
-// Define a constant string for the consine method's name
+// Define a constant string for the cosine method's name
 const string COS_METHOD = "cos";
+
+// Number of tests for path coverage
+const unsigned int NUBMER_OF_TESTS_FOR_PATH_COVERAGE = 12;
+
+// Number of tests for boundary conditions
+const unsigned int NUBMER_OF_TESTS_FOR_BOUDARY_CONDITION = 16;
+
 
 /**
  * Define a object to store a test data set.
- * It includes three arrays.
- * One is for storing degrees to be tested
- *
+ * It includes three arrays defined below
  */
 struct TestDataSet {
 	/**
@@ -41,35 +47,42 @@ struct TestDataSet {
 	int degrees[MAXIMUM_OF_TEST_CASES];
 
 	/**
-	 * An array to store expected result for each degree tested
+	 * An array to store the expected results for each degree tested
 	 */
 	int expected_results[MAXIMUM_OF_TEST_CASES];
 
 	/**
-	 * An array to store the actual result for each degree tested
+	 * An array to store the actual results for each degree tested
 	 */
 	int actual_results[MAXIMUM_OF_TEST_CASES];
 };
 
 /**
- * Verify the test result by comparing the expected result and actual result and print to the console in the table format
+ * Verify the test result by comparing the expected result and the actual result, then print the result to the console in the table format
  *
  * @param: methodName The method that is used to execute the test data: sin(x) or cos(x)
- * @param: testData	 The object that holds test data and result
+ * @param: testData	 The TestDataSet object that holds the test data set and the result
  *
  * @return: N/A
  */
-void verifyResultAndPrintToConsole(string methodName,
+void verifyResultAndPrintToConsole(string &methodName,
 		const TestDataSet &testData, unsigned int nr_of_tests) {
-	unsigned int PADDING = 10;
-	unsigned int FIRST_COLUMN_PADDING = 8;
-	unsigned int SECOND_COLUMN_PADDING = 12;
-	unsigned int TOTAL_INNER_VERTICAL_BORDER_CHARACTER = 4;
+
+	const unsigned int PADDING = 10;
+	const unsigned int FIRST_COLUMN_PADDING = 8;
+	const unsigned int SECOND_COLUMN_PADDING = 12;
+	const unsigned int TOTAL_INNER_VERTICAL_BORDER_CHARACTER = 4;
 
 	const char PLUS_CHARACTER = '+';
 	const char TABLE_HORIZONTAL_BORDER_CHARACTER = '-';
 	const char TABLE_VERTICAL_BORDER_CHARACTER = '|';
 	const char BLANK_CHARACTER = ' ';
+
+	const string NO_HEADER = "No.";
+	const string TEST_CASE_NAME_HEADER = "Test case";
+	const string ACTUAL_RESULT_HEADER = "Actual";
+	const string EXPECTED_RESULT_HEADER = "Expected";
+	const string PASS_FAIL_HEADER = "Expected";
 
 	const string PASS = "Pass";
 	const string FAIL = "Fail";
@@ -78,24 +91,27 @@ void verifyResultAndPrintToConsole(string methodName,
 			+ SECOND_COLUMN_PADDING + PADDING * 3
 			+ TOTAL_INNER_VERTICAL_BORDER_CHARACTER;
 
-	// Create the table header's horizontal line border
+	// Create the table header's border
 	cout << PLUS_CHARACTER << setfill(TABLE_HORIZONTAL_BORDER_CHARACTER)
 			<< setw(TOTAL_TABLE_WIDTH) << TABLE_HORIZONTAL_BORDER_CHARACTER
 			<< PLUS_CHARACTER << setfill(BLANK_CHARACTER) << endl;
 
+	// Create headers
 	cout << TABLE_VERTICAL_BORDER_CHARACTER << setw(FIRST_COLUMN_PADDING)
-			<< left << "No." << TABLE_VERTICAL_BORDER_CHARACTER
-			<< setw(SECOND_COLUMN_PADDING) << left << "Test case"
+			<< left << NO_HEADER << TABLE_VERTICAL_BORDER_CHARACTER
+			<< setw(SECOND_COLUMN_PADDING) << left << TEST_CASE_NAME_HEADER
 			<< TABLE_VERTICAL_BORDER_CHARACTER << setw(PADDING) << left
-			<< "Actual" << TABLE_VERTICAL_BORDER_CHARACTER << setw(PADDING)
-			<< left << "Expected" << TABLE_VERTICAL_BORDER_CHARACTER
-			<< setw(PADDING) << left << "Pass/Fail"
+			<< ACTUAL_RESULT_HEADER << TABLE_VERTICAL_BORDER_CHARACTER << setw(PADDING)
+			<< left << EXPECTED_RESULT_HEADER << TABLE_VERTICAL_BORDER_CHARACTER
+			<< setw(PADDING) << left << PASS_FAIL_HEADER
 			<< TABLE_VERTICAL_BORDER_CHARACTER << endl;
 
+	// Close table header with a border
 	cout << PLUS_CHARACTER << setfill(TABLE_HORIZONTAL_BORDER_CHARACTER)
 			<< setw(TOTAL_TABLE_WIDTH) << TABLE_HORIZONTAL_BORDER_CHARACTER
 			<< PLUS_CHARACTER << setfill(BLANK_CHARACTER) << endl;
 
+	// Print result rows
 	for (unsigned int i = 0; i < nr_of_tests; i++) {
 		bool passed = testData.actual_results[i]
 				== testData.expected_results[i];
@@ -114,13 +130,14 @@ void verifyResultAndPrintToConsole(string methodName,
 
 	}
 
+	// Close the table with a border
 	cout << PLUS_CHARACTER << setfill(TABLE_HORIZONTAL_BORDER_CHARACTER)
 			<< setw(TOTAL_TABLE_WIDTH) << TABLE_HORIZONTAL_BORDER_CHARACTER
 			<< PLUS_CHARACTER << setfill(BLANK_CHARACTER) << endl;
 }
 
 /**
- * Execute test data defined in the TestDataSet object by the method defined in the parameter.
+ * Execute the test data defined in the TestDataSet object by the method defined in the parameter.
  * Then store the result in the property "actual_results" of the TestDataSet object
  *
  * @param: method_name The method will be invoked for the test: cos(x) or sin(x)
@@ -143,7 +160,7 @@ void runTestSuite(string method_name, TestDataSet &testDataSet,
 }
 
 /**
- *  Initiate test data set for the sin method with path coverage
+ *  Initiate the test data set for the sin method with path coverage
  *   @return: a TestDataSet object that contains a list of degrees to be tested and expected results
  */
 TestDataSet initSinDataSetForPathCoverage() {
@@ -255,12 +272,14 @@ TestDataSet initSinDataSetForBoundaryConditions() {
  *	@param: N/A
  *	@return: N/A
  */
-void testSinMethodWithBoundaryCondition() {
-	unsigned int number_of_tests = 16;
+void testSinMethodWithBoundaryConditions() {
+	cout << "Test sin(x) with boundary conditions" <<endl;
 
 	TestDataSet sinTestDataSet = initSinDataSetForBoundaryConditions();
 
-	runTestSuite(SIN_METHOD, sinTestDataSet, number_of_tests);
+	runTestSuite(SIN_METHOD, sinTestDataSet, NUBMER_OF_TESTS_FOR_BOUDARY_CONDITION);
+
+	cout << endl;
 
 }
 
@@ -271,11 +290,14 @@ void testSinMethodWithBoundaryCondition() {
  *	@return: N/A
  */
 void testSinMethodWithPathCoverage() {
-	unsigned int number_of_tests = 12;
+
+	cout << "Test sin(x) with path coverage" <<endl;
 
 	TestDataSet sinTestDataSet = initSinDataSetForPathCoverage();
 
-	runTestSuite(SIN_METHOD, sinTestDataSet, number_of_tests);
+	runTestSuite(SIN_METHOD, sinTestDataSet, NUBMER_OF_TESTS_FOR_PATH_COVERAGE);
+
+	cout << endl;
 }
 
 /**
@@ -308,14 +330,17 @@ TestDataSet initCosDataSetFromSinDataSet(const TestDataSet &sinDataSet,
  *
  */
 void testCosMethodWithPathCoverage() {
-	const unsigned int NUBMER_OF_TESTS = 12;
+
+	cout << "Test cos(x) with path coverage" <<endl;
 
 	TestDataSet sinDataSet = initSinDataSetForPathCoverage();
 
 	TestDataSet costDataSet = initCosDataSetFromSinDataSet(sinDataSet,
-			NUBMER_OF_TESTS);
+			NUBMER_OF_TESTS_FOR_PATH_COVERAGE);
 
-	runTestSuite(COS_METHOD, costDataSet, 12);
+	runTestSuite(COS_METHOD, costDataSet, NUBMER_OF_TESTS_FOR_PATH_COVERAGE);
+
+	cout << endl;
 
 }
 
@@ -327,14 +352,17 @@ void testCosMethodWithPathCoverage() {
  *
  */
 void testCosMethodWithBoudaryConditions() {
-	const unsigned int NUBMER_OF_TESTS = 16;
+
+	cout << "Test cos(x) with boundary conditions" <<endl;
 
 	TestDataSet sinDataSet = initSinDataSetForBoundaryConditions();
 
-	TestDataSet costDataSet = initCosDataSetFromSinDataSet(sinDataSet,
-			NUBMER_OF_TESTS);
+	TestDataSet cosDataSet = initCosDataSetFromSinDataSet(sinDataSet,
+			NUBMER_OF_TESTS_FOR_BOUDARY_CONDITION);
 
-	runTestSuite(COS_METHOD, costDataSet, NUBMER_OF_TESTS);
+	runTestSuite(COS_METHOD, cosDataSet, NUBMER_OF_TESTS_FOR_BOUDARY_CONDITION);
+
+	cout << endl;
 
 }
 
@@ -349,7 +377,7 @@ void testCosMethodWithBoudaryConditions() {
 void runTestSuiteForSinMethod() {
 	testSinMethodWithPathCoverage();
 
-	testSinMethodWithBoundaryCondition();
+	testSinMethodWithBoundaryConditions();
 }
 
 /**
