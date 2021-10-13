@@ -1,0 +1,94 @@
+\hypertarget{sin__cos_8cpp}{}\doxysection{CS700\+Assignment2/src/sin\+\_\+cos.cpp File Reference}
+\label{sin__cos_8cpp}\index{CS700Assignment2/src/sin\_cos.cpp@{CS700Assignment2/src/sin\_cos.cpp}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{sin__cos_8cpp_a4d34b419d8c18cff22ace1398020c66d}{sin0to45}} (int)
+\item 
+int \mbox{\hyperlink{sin__cos_8cpp_a743e8b258eaea56b82298767f7a38f49}{sin45to90}} (int)
+\item 
+int \mbox{\hyperlink{sin__cos_8cpp_a11f6c785fc4ec985678b2600033ff987}{poly\+Eval}} (int, int\mbox{[}$\,$\mbox{]}, int)
+\item 
+int \mbox{\hyperlink{sin__cos_8cpp_afd762e9687e5138de65e04f5a3f8378b}{sin}} (int x)
+\item 
+int \mbox{\hyperlink{sin__cos_8cpp_a998614b6475c1efa325e5a5dd1c50d80}{cos}} (int x)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sin__cos_8cpp_a998614b6475c1efa325e5a5dd1c50d80}\label{sin__cos_8cpp_a998614b6475c1efa325e5a5dd1c50d80}} 
+\index{sin\_cos.cpp@{sin\_cos.cpp}!cos@{cos}}
+\index{cos@{cos}!sin\_cos.cpp@{sin\_cos.cpp}}
+\doxysubsubsection{\texorpdfstring{cos()}{cos()}}
+{\footnotesize\ttfamily int cos (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+Compute the cosine of an angle in degrees. 
+\begin{DoxyParams}{Parameters}
+{\em x} & The angle in degrees \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cosine of x 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sin__cos_8cpp_a11f6c785fc4ec985678b2600033ff987}\label{sin__cos_8cpp_a11f6c785fc4ec985678b2600033ff987}} 
+\index{sin\_cos.cpp@{sin\_cos.cpp}!polyEval@{polyEval}}
+\index{polyEval@{polyEval}!sin\_cos.cpp@{sin\_cos.cpp}}
+\doxysubsubsection{\texorpdfstring{polyEval()}{polyEval()}}
+{\footnotesize\ttfamily int poly\+Eval (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{coef\mbox{[}$\,$\mbox{]},  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+Function to evaluate a polynomial 
+\begin{DoxyParams}{Parameters}
+{\em x} & The point at which the polynomial is to be evaulated \\
+\hline
+{\em coef} & The array of coefficients \\
+\hline
+{\em n} & The number of coefficients (degree + 1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+x$^\wedge$n-\/1$\ast$coef\mbox{[}0\mbox{]} + x$^\wedge$n-\/2$\ast$coef\mbox{[}1\mbox{]} + ... x$\ast$coef\mbox{[}n-\/2\mbox{]} + coef\mbox{[}n-\/1\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sin__cos_8cpp_afd762e9687e5138de65e04f5a3f8378b}\label{sin__cos_8cpp_afd762e9687e5138de65e04f5a3f8378b}} 
+\index{sin\_cos.cpp@{sin\_cos.cpp}!sin@{sin}}
+\index{sin@{sin}!sin\_cos.cpp@{sin\_cos.cpp}}
+\doxysubsubsection{\texorpdfstring{sin()}{sin()}}
+{\footnotesize\ttfamily int sin (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+Compute the sine of an angle in degrees. 
+\begin{DoxyParams}{Parameters}
+{\em x} & The angle in degrees \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sine of x 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sin__cos_8cpp_a4d34b419d8c18cff22ace1398020c66d}\label{sin__cos_8cpp_a4d34b419d8c18cff22ace1398020c66d}} 
+\index{sin\_cos.cpp@{sin\_cos.cpp}!sin0to45@{sin0to45}}
+\index{sin0to45@{sin0to45}!sin\_cos.cpp@{sin\_cos.cpp}}
+\doxysubsubsection{\texorpdfstring{sin0to45()}{sin0to45()}}
+{\footnotesize\ttfamily int sin0to45 (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+These functions compute the sine and cosine of an angle expressed in degrees. The result will be an integer representing the sine or cosine as ten-\/thousandths. For example, a result of 7071 represents 7071e-\/4 or 0.\+7071.
+
+Compute the sine of an angle in degrees between 0 and 45. pre\+: 0 \texorpdfstring{$<$}{<}= x \texorpdfstring{$<$}{<} 45 
+\begin{DoxyParams}{Parameters}
+{\em x} & The angle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sine of x 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sin__cos_8cpp_a743e8b258eaea56b82298767f7a38f49}\label{sin__cos_8cpp_a743e8b258eaea56b82298767f7a38f49}} 
+\index{sin\_cos.cpp@{sin\_cos.cpp}!sin45to90@{sin45to90}}
+\index{sin45to90@{sin45to90}!sin\_cos.cpp@{sin\_cos.cpp}}
+\doxysubsubsection{\texorpdfstring{sin45to90()}{sin45to90()}}
+{\footnotesize\ttfamily int sin45to90 (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+Compute the sine of an angle in degrees between 45 and 90. pre\+: 45 \texorpdfstring{$<$}{<}= x \texorpdfstring{$<$}{<}= 90 
+\begin{DoxyParams}{Parameters}
+{\em x} & The angle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sine of x 
+\end{DoxyReturn}

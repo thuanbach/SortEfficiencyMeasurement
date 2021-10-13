@@ -1,20 +1,24 @@
-//============================================================================
-// Name        : CS700Assignment2.cpp
-// Author      : Thuan Bach
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
-//============================================================================
-
-
+/**
+ * main.cpp
+ *
+ * Created on: Oct 11, 2021
+ *
+ * Author: Thuan Bach.
+ *
+ */
 #include <iostream>
 #include <cstdlib>
 #include <iomanip>
 #include "sin_cos_test.h"
 
-using namespace std;
-
-
+/**
+ *
+ * The main file of the application.
+ * It runs 2 test suites that implements a white-box test for sin(x) and cos(x) method
+ *
+ * @param N/A
+ * @return 0
+ */
 int main() {
 
 

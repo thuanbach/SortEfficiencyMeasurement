@@ -15,7 +15,7 @@
  *	|No.     |Test case   |Actual    |Expected  |Pass/Fail |
  *	+------------------------------------------------------+
  *	|1       |sin(-30)    |4999      |-4999     |Fail      |
- *	|2       |sin(-60)    |8660      | 8660     |PASS      |
+ *	|2       |sin(60)     |8660      | 8660     |Pass      |
  *	+------------------------------------------------------+
  */
 
@@ -24,22 +24,22 @@
 
 /**
  *
- * Implement a white-box test for the method sin(x)
+ * Implement a white-box test for the method sin(x).
  * It includes 2 kinds of test cases: one for path coverage and one for boundary conditions
  *
- *  @param: N/A
- *  @return: N/A
+ *  @param N/A
+ *  @return N/A
  *
  */
 void runTestSuiteForSinMethod();
 
 
 /**
- * Implement a white-box test for the method cos(x)
+ * Implement a white-box test for the method cos(x).
  * It includes 2 kinds of test cases: one for path coverage and one for boundary conditions
  *
- *  @param: N/A
- *  @return: N/A
+ *  @param N/A
+ *  @return N/A
  *
  */
 void runTestSuiteForCosMethod();
