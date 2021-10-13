@@ -1,0 +1,113 @@
+\hypertarget{efficiency__measurement_8cpp}{}\doxysection{CS700\+Assignment2/src/efficiency\+\_\+measurement.cpp File Reference}
+\label{efficiency__measurement_8cpp}\index{CS700Assignment2/src/efficiency\_measurement.cpp@{CS700Assignment2/src/efficiency\_measurement.cpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{efficiency__measurement_8cpp_a2d3b30724d0450e1c8c5e70831648441}{measure\+\_\+array\+\_\+sorting}} (unsigned int arr\mbox{[}$\,$\mbox{]}, unsigned int size)
+\item 
+void \mbox{\hyperlink{efficiency__measurement_8cpp_a4fe3d292ebae676c331c189d13da5e90}{print\+\_\+execution\+\_\+time}} (unsigned int n, unsigned int execution\+\_\+time\mbox{[}\mbox{\hyperlink{efficiency__measurement_8cpp_a961bb65032fc4d3218da152bd58a2d9a}{NUMBER\+\_\+\+OF\+\_\+\+ARRAY\+\_\+\+ORDERING}}\mbox{]}\mbox{[}\mbox{\hyperlink{efficiency__measurement_8cpp_a8bc654702ed50da8e06e80c0275132de}{NUMBER\+\_\+\+OF\+\_\+\+ARRAYS\+\_\+\+PER\+\_\+\+SIZE}}\mbox{]})
+\item 
+void \mbox{\hyperlink{efficiency__measurement_8cpp_a51ab9c799c85585d0a7617b862f8f68e}{measure\+\_\+sorting}} (unsigned int n)
+\item 
+void \mbox{\hyperlink{efficiency__measurement_8cpp_ac80dd4d48e4dd71811e0d211161d80ec}{measure\+\_\+sorting\+\_\+efficiency}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned int \mbox{\hyperlink{efficiency__measurement_8cpp_a8bc654702ed50da8e06e80c0275132de}{NUMBER\+\_\+\+OF\+\_\+\+ARRAYS\+\_\+\+PER\+\_\+\+SIZE}} = 10
+\item 
+const unsigned int \mbox{\hyperlink{efficiency__measurement_8cpp_a961bb65032fc4d3218da152bd58a2d9a}{NUMBER\+\_\+\+OF\+\_\+\+ARRAY\+\_\+\+ORDERING}} = 3
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{efficiency__measurement_8cpp_a2d3b30724d0450e1c8c5e70831648441}\label{efficiency__measurement_8cpp_a2d3b30724d0450e1c8c5e70831648441}} 
+\index{efficiency\_measurement.cpp@{efficiency\_measurement.cpp}!measure\_array\_sorting@{measure\_array\_sorting}}
+\index{measure\_array\_sorting@{measure\_array\_sorting}!efficiency\_measurement.cpp@{efficiency\_measurement.cpp}}
+\doxysubsubsection{\texorpdfstring{measure\_array\_sorting()}{measure\_array\_sorting()}}
+{\footnotesize\ttfamily unsigned int measure\+\_\+array\+\_\+sorting (\begin{DoxyParamCaption}\item[{unsigned int}]{arr\mbox{[}$\,$\mbox{]},  }\item[{unsigned int}]{size }\end{DoxyParamCaption})}
+
+Measure the execution time of the sort method for one array
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr\mbox{[}$\,$\mbox{]}} & The array of unsigned integer to be measured \\
+\hline
+{\em size} & The size of the array\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The execution time of the sort method 
+\end{DoxyReturn}
+\mbox{\Hypertarget{efficiency__measurement_8cpp_a51ab9c799c85585d0a7617b862f8f68e}\label{efficiency__measurement_8cpp_a51ab9c799c85585d0a7617b862f8f68e}} 
+\index{efficiency\_measurement.cpp@{efficiency\_measurement.cpp}!measure\_sorting@{measure\_sorting}}
+\index{measure\_sorting@{measure\_sorting}!efficiency\_measurement.cpp@{efficiency\_measurement.cpp}}
+\doxysubsubsection{\texorpdfstring{measure\_sorting()}{measure\_sorting()}}
+{\footnotesize\ttfamily void measure\+\_\+sorting (\begin{DoxyParamCaption}\item[{unsigned int}]{n }\end{DoxyParamCaption})}
+
+Measure the execution time for one kind of array size.
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & array size among 3 kinds of array length to be tested.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+\mbox{\Hypertarget{efficiency__measurement_8cpp_ac80dd4d48e4dd71811e0d211161d80ec}\label{efficiency__measurement_8cpp_ac80dd4d48e4dd71811e0d211161d80ec}} 
+\index{efficiency\_measurement.cpp@{efficiency\_measurement.cpp}!measure\_sorting\_efficiency@{measure\_sorting\_efficiency}}
+\index{measure\_sorting\_efficiency@{measure\_sorting\_efficiency}!efficiency\_measurement.cpp@{efficiency\_measurement.cpp}}
+\doxysubsubsection{\texorpdfstring{measure\_sorting\_efficiency()}{measure\_sorting\_efficiency()}}
+{\footnotesize\ttfamily void measure\+\_\+sorting\+\_\+efficiency (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Measure the efficiency of the sort method implemented in the library $<$algorithm$>$ mentioned in the efficiency\+\_\+measure.\+h
+
+
+\begin{DoxyParams}{Parameters}
+{\em N/A} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+\mbox{\Hypertarget{efficiency__measurement_8cpp_a4fe3d292ebae676c331c189d13da5e90}\label{efficiency__measurement_8cpp_a4fe3d292ebae676c331c189d13da5e90}} 
+\index{efficiency\_measurement.cpp@{efficiency\_measurement.cpp}!print\_execution\_time@{print\_execution\_time}}
+\index{print\_execution\_time@{print\_execution\_time}!efficiency\_measurement.cpp@{efficiency\_measurement.cpp}}
+\doxysubsubsection{\texorpdfstring{print\_execution\_time()}{print\_execution\_time()}}
+{\footnotesize\ttfamily void print\+\_\+execution\+\_\+time (\begin{DoxyParamCaption}\item[{unsigned int}]{n,  }\item[{unsigned int}]{execution\+\_\+time\mbox{[}\+NUMBER\+\_\+\+OF\+\_\+\+ARRAY\+\_\+\+ORDERING\mbox{]}\mbox{[}\+NUMBER\+\_\+\+OF\+\_\+\+ARRAYS\+\_\+\+PER\+\_\+\+SIZE\mbox{]} }\end{DoxyParamCaption})}
+
+Print the execution time to the console for one kind of array size
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The array size \\
+\hline
+{\em execution\+\_\+time} & A two-\/dimensional array to store the execution time. The row subscript is the kind of array orders. The column subscript is the number of arrays to be tested.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{efficiency__measurement_8cpp_a961bb65032fc4d3218da152bd58a2d9a}\label{efficiency__measurement_8cpp_a961bb65032fc4d3218da152bd58a2d9a}} 
+\index{efficiency\_measurement.cpp@{efficiency\_measurement.cpp}!NUMBER\_OF\_ARRAY\_ORDERING@{NUMBER\_OF\_ARRAY\_ORDERING}}
+\index{NUMBER\_OF\_ARRAY\_ORDERING@{NUMBER\_OF\_ARRAY\_ORDERING}!efficiency\_measurement.cpp@{efficiency\_measurement.cpp}}
+\doxysubsubsection{\texorpdfstring{NUMBER\_OF\_ARRAY\_ORDERING}{NUMBER\_OF\_ARRAY\_ORDERING}}
+{\footnotesize\ttfamily const unsigned int NUMBER\+\_\+\+OF\+\_\+\+ARRAY\+\_\+\+ORDERING = 3}
+
+Number of array orders to be tested per each array \mbox{\Hypertarget{efficiency__measurement_8cpp_a8bc654702ed50da8e06e80c0275132de}\label{efficiency__measurement_8cpp_a8bc654702ed50da8e06e80c0275132de}} 
+\index{efficiency\_measurement.cpp@{efficiency\_measurement.cpp}!NUMBER\_OF\_ARRAYS\_PER\_SIZE@{NUMBER\_OF\_ARRAYS\_PER\_SIZE}}
+\index{NUMBER\_OF\_ARRAYS\_PER\_SIZE@{NUMBER\_OF\_ARRAYS\_PER\_SIZE}!efficiency\_measurement.cpp@{efficiency\_measurement.cpp}}
+\doxysubsubsection{\texorpdfstring{NUMBER\_OF\_ARRAYS\_PER\_SIZE}{NUMBER\_OF\_ARRAYS\_PER\_SIZE}}
+{\footnotesize\ttfamily const unsigned int NUMBER\+\_\+\+OF\+\_\+\+ARRAYS\+\_\+\+PER\+\_\+\+SIZE = 10}
+
+Number of arrays to be tested per the array size 
