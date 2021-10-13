@@ -3,6 +3,8 @@
  *
  *  Created on: Oct 9, 2021
  *      Author: Thuan Bach
+ *
+ *  This module is used to measure the efficiency of the sort method implemented in the library <algorithm>
  */
 
 #include <algorithm>
@@ -18,28 +20,24 @@ using std::chrono::milliseconds;
 
 using namespace std;
 
+/**
+ * Number of arrays to be tested per the array size
+ */
 const unsigned int NUMBER_OF_ARRAYS_PER_SIZE = 10;
+
+/**
+ * Number of array orders to be tested per each array
+ */
 const unsigned int NUMBER_OF_ARRAY_ORDERING = 3;
 
-const char PLUS_CHARACTER = '+';
-const char TABLE_HORIZONTAL_BORDER_CHARACTER = '-';
-
-const char TABLE_VERTICAL_BORDER_CHARACTER = '|';
-
-const unsigned int ARRAY_HEADER_WIDTH = 10;
-const unsigned int ARRAY_HEADER_PADDING = 2;
-
-const string COLUMN_HEADER = "Array";
-
-const char BLANK_CHARACTER = ' ';
-
-const unsigned int FIRST_COLUMN_WIDTH = 20;
-
-const unsigned int COLUMN_WIDTH_PER_ARRAY = 11;
-
-const unsigned int TOTAL_TABLE_WIDTH = FIRST_COLUMN_WIDTH
-		+ COLUMN_WIDTH_PER_ARRAY * NUMBER_OF_ARRAYS_PER_SIZE;
-
+/**
+ * Measure the execution time of the sort method for one array
+ *
+ * @param arr[] The array of unsigned integer to be measured
+ * @param size The size of the array
+ *
+ * @return The execution time of the sort method
+ */
 unsigned int measure_array_sorting(unsigned int arr[], unsigned int size) {
 
 	auto t1 = chrono::high_resolution_clock::now();
@@ -53,12 +51,40 @@ unsigned int measure_array_sorting(unsigned int arr[], unsigned int size) {
 	return ms_int.count();
 }
 
+/**
+ * Print the execution time to the console for one kind of array size
+ *
+ * @param n The array size
+ * @param execution_time A two-dimensional array to store the execution time.
+ * 	The row subscript is the kind of array orders.
+ * 	The column subscript is the number of arrays to be tested.
+ *
+ * 	@return N/A
+ */
 void print_execution_time(unsigned int n,
 		unsigned int execution_time[NUMBER_OF_ARRAY_ORDERING][NUMBER_OF_ARRAYS_PER_SIZE]) {
 
+	const char PLUS_CHARACTER = '+';
+	const char TABLE_HORIZONTAL_BORDER_CHARACTER = '-';
+
+	const char TABLE_VERTICAL_BORDER_CHARACTER = '|';
+
+	const unsigned int ARRAY_HEADER_WIDTH = 10;
+	const unsigned int ARRAY_HEADER_PADDING = 2;
+
+	const string COLUMN_HEADER = "Array";
+
+	const char BLANK_CHARACTER = ' ';
+
+	const unsigned int FIRST_COLUMN_WIDTH = 20;
+
+	const unsigned int COLUMN_WIDTH_PER_ARRAY = 11;
+
+	const unsigned int TOTAL_TABLE_WIDTH = FIRST_COLUMN_WIDTH
+			+ COLUMN_WIDTH_PER_ARRAY * NUMBER_OF_ARRAYS_PER_SIZE;
+
 	// Print a line to indicate size of arrays
 	cout << "n=" << n << endl;
-
 
 	// Print table header border
 	cout << PLUS_CHARACTER << setfill(TABLE_HORIZONTAL_BORDER_CHARACTER)
@@ -82,7 +108,6 @@ void print_execution_time(unsigned int n,
 	cout << PLUS_CHARACTER << setfill(TABLE_HORIZONTAL_BORDER_CHARACTER)
 			<< setw(TOTAL_TABLE_WIDTH) << TABLE_HORIZONTAL_BORDER_CHARACTER
 			<< PLUS_CHARACTER << setfill(BLANK_CHARACTER) << endl;
-
 
 	// Print execution time for each array ordering.
 	for (unsigned int i = 0; i < NUMBER_OF_ARRAY_ORDERING; i++) {
@@ -110,6 +135,13 @@ void print_execution_time(unsigned int n,
 			<< PLUS_CHARACTER << setfill(BLANK_CHARACTER) << endl;
 }
 
+/**
+ * Measure the execution time for one kind of array size.
+ *
+ * @param The array size among 3 kinds of array length to be tested.
+ *
+ * @return N/A
+ */
 void measure_sorting(unsigned int n) {
 
 	unsigned int arr[n];
@@ -138,6 +170,13 @@ void measure_sorting(unsigned int n) {
 
 }
 
+/**
+ * Measure the efficiency of the sort method implemented in the library <algorithm> mentioned in the efficiency_measure.h
+ *
+ * @param N/A
+ *
+ * @return N/A
+ */
 void measure_sorting_efficiency() {
 
 	const unsigned int NUMBER_OF_ARRAY_SIZES = 3;
