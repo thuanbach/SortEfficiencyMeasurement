@@ -1,5 +1,5 @@
-\hypertarget{efficiency__measurement_8cpp}{}\doxysection{CS700\+Assignment2/src/efficiency\+\_\+measurement.cpp File Reference}
-\label{efficiency__measurement_8cpp}\index{CS700Assignment2/src/efficiency\_measurement.cpp@{CS700Assignment2/src/efficiency\_measurement.cpp}}
+\hypertarget{efficiency__measurement_8cpp}{}\doxysection{src/efficiency\+\_\+measurement.cpp File Reference}
+\label{efficiency__measurement_8cpp}\index{src/efficiency\_measurement.cpp@{src/efficiency\_measurement.cpp}}
 {\ttfamily \#include $<$algorithm$>$}\newline
 {\ttfamily \#include $<$chrono$>$}\newline
 {\ttfamily \#include $<$cstdlib$>$}\newline
@@ -10,6 +10,8 @@
 \begin{DoxyCompactItemize}
 \item 
 unsigned int \mbox{\hyperlink{efficiency__measurement_8cpp_a2d3b30724d0450e1c8c5e70831648441}{measure\+\_\+array\+\_\+sorting}} (unsigned int arr\mbox{[}$\,$\mbox{]}, unsigned int size)
+\item 
+string \mbox{\hyperlink{efficiency__measurement_8cpp_a90d650cb733255585c7bda6cbb577641}{format\+\_\+number}} (unsigned int n)
 \item 
 void \mbox{\hyperlink{efficiency__measurement_8cpp_a4fe3d292ebae676c331c189d13da5e90}{print\+\_\+execution\+\_\+time}} (unsigned int n, unsigned int execution\+\_\+time\mbox{[}\mbox{\hyperlink{efficiency__measurement_8cpp_a961bb65032fc4d3218da152bd58a2d9a}{NUMBER\+\_\+\+OF\+\_\+\+ARRAY\+\_\+\+ORDERING}}\mbox{]}\mbox{[}\mbox{\hyperlink{efficiency__measurement_8cpp_a8bc654702ed50da8e06e80c0275132de}{NUMBER\+\_\+\+OF\+\_\+\+ARRAYS\+\_\+\+PER\+\_\+\+SIZE}}\mbox{]})
 \item 
@@ -23,10 +25,28 @@ void \mbox{\hyperlink{efficiency__measurement_8cpp_ac80dd4d48e4dd71811e0d211161d
 const unsigned int \mbox{\hyperlink{efficiency__measurement_8cpp_a8bc654702ed50da8e06e80c0275132de}{NUMBER\+\_\+\+OF\+\_\+\+ARRAYS\+\_\+\+PER\+\_\+\+SIZE}} = 10
 \item 
 const unsigned int \mbox{\hyperlink{efficiency__measurement_8cpp_a961bb65032fc4d3218da152bd58a2d9a}{NUMBER\+\_\+\+OF\+\_\+\+ARRAY\+\_\+\+ORDERING}} = 3
+\item 
+const char \mbox{\hyperlink{efficiency__measurement_8cpp_abaa8472cde9d13ebb03772ee0343cbec}{THOUDSAND\+\_\+\+SEPARATOR}} = \textquotesingle{},\textquotesingle{}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{efficiency__measurement_8cpp_a90d650cb733255585c7bda6cbb577641}\label{efficiency__measurement_8cpp_a90d650cb733255585c7bda6cbb577641}} 
+\index{efficiency\_measurement.cpp@{efficiency\_measurement.cpp}!format\_number@{format\_number}}
+\index{format\_number@{format\_number}!efficiency\_measurement.cpp@{efficiency\_measurement.cpp}}
+\doxysubsubsection{\texorpdfstring{format\_number()}{format\_number()}}
+{\footnotesize\ttfamily string format\+\_\+number (\begin{DoxyParamCaption}\item[{unsigned int}]{n }\end{DoxyParamCaption})}
+
+Format a number with a thousand separator
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & An unsigned integer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string presents the number with a thousand separator 
+\end{DoxyReturn}
 \mbox{\Hypertarget{efficiency__measurement_8cpp_a2d3b30724d0450e1c8c5e70831648441}\label{efficiency__measurement_8cpp_a2d3b30724d0450e1c8c5e70831648441}} 
 \index{efficiency\_measurement.cpp@{efficiency\_measurement.cpp}!measure\_array\_sorting@{measure\_array\_sorting}}
 \index{measure\_array\_sorting@{measure\_array\_sorting}!efficiency\_measurement.cpp@{efficiency\_measurement.cpp}}
@@ -110,4 +130,10 @@ Number of array orders to be tested per each array \mbox{\Hypertarget{efficiency
 \doxysubsubsection{\texorpdfstring{NUMBER\_OF\_ARRAYS\_PER\_SIZE}{NUMBER\_OF\_ARRAYS\_PER\_SIZE}}
 {\footnotesize\ttfamily const unsigned int NUMBER\+\_\+\+OF\+\_\+\+ARRAYS\+\_\+\+PER\+\_\+\+SIZE = 10}
 
-Number of arrays to be tested per the array size 
+Number of arrays to be tested per the array size \mbox{\Hypertarget{efficiency__measurement_8cpp_abaa8472cde9d13ebb03772ee0343cbec}\label{efficiency__measurement_8cpp_abaa8472cde9d13ebb03772ee0343cbec}} 
+\index{efficiency\_measurement.cpp@{efficiency\_measurement.cpp}!THOUDSAND\_SEPARATOR@{THOUDSAND\_SEPARATOR}}
+\index{THOUDSAND\_SEPARATOR@{THOUDSAND\_SEPARATOR}!efficiency\_measurement.cpp@{efficiency\_measurement.cpp}}
+\doxysubsubsection{\texorpdfstring{THOUDSAND\_SEPARATOR}{THOUDSAND\_SEPARATOR}}
+{\footnotesize\ttfamily const char THOUDSAND\+\_\+\+SEPARATOR = \textquotesingle{},\textquotesingle{}}
+
+Declare a thousand separator 

@@ -31,6 +31,11 @@ const unsigned int NUMBER_OF_ARRAYS_PER_SIZE = 10;
 const unsigned int NUMBER_OF_ARRAY_ORDERING = 3;
 
 /**
+ * Declare a thousand separator
+ */
+const char THOUDSAND_SEPARATOR = ',';
+
+/**
  * Measure the execution time of the sort method for one array
  *
  * @param arr[] The array of unsigned integer to be measured
@@ -49,6 +54,25 @@ unsigned int measure_array_sorting(unsigned int arr[], unsigned int size) {
 	auto ms_int = duration_cast<milliseconds>(t2 - t1);
 
 	return ms_int.count();
+}
+
+/**
+ * Format a number with a thousand separator
+ *
+ * @param n	An unsigned integer
+ * @return A string presents the number with a thousand separator
+ */
+string format_number(unsigned int n) {
+	string s = to_string(n);
+
+	int index = s.length() - 3;
+
+	while (index > 0) {
+		s.insert(index, to_string(THOUDSAND_SEPARATOR));
+		index -= 3;
+	}
+
+	return s;
 }
 
 /**
@@ -84,7 +108,7 @@ void print_execution_time(unsigned int n,
 			+ COLUMN_WIDTH_PER_ARRAY * NUMBER_OF_ARRAYS_PER_SIZE;
 
 	// Print a line to indicate size of arrays
-	cout << "n=" << n << endl;
+	cout << "n=" << format_number(n) << endl;
 
 	// Print table header border
 	cout << PLUS_CHARACTER << setfill(TABLE_HORIZONTAL_BORDER_CHARACTER)
