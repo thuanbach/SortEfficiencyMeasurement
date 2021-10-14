@@ -176,7 +176,7 @@ void measure_sorting(unsigned int n) {
 	for (unsigned int j = 0; j < NUMBER_OF_ARRAYS_PER_SIZE; j++) {
 
 		for (unsigned int k = 0; k < n; k++) {
-			arr[j] = rand();
+			arr[k] = rand();
 		}
 
 		// Test sort random
@@ -212,7 +212,7 @@ void measure_sorting_efficiency() {
 	array_sizes[1] = 1000 * 1000;
 	array_sizes[2] = 10000 * 1000;
 
-	for (unsigned i = 0; i < 3; i++) {
+	for (unsigned i = 0; i < NUMBER_OF_ARRAY_SIZES; i++) {
 		measure_sorting(array_sizes[i]);
 		cout << endl;
 	}
