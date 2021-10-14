@@ -246,7 +246,7 @@ TestDataSet initSinDataSetForBoundaryConditions() {
 	sinTestDataSet.expected_results[9] = 7071;
 
 	sinTestDataSet.degrees[10] = -450;
-	sinTestDataSet.expected_results[10] = 9999;
+	sinTestDataSet.expected_results[10] = -9999;
 
 	sinTestDataSet.degrees[11] = 450;
 	sinTestDataSet.expected_results[11] = 9999;
