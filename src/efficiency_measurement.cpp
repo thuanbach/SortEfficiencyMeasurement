@@ -33,7 +33,7 @@ const unsigned int NUMBER_OF_ARRAY_ORDERING = 3;
 /**
  * Declare a thousand separator
  */
-const char THOUDSAND_SEPARATOR = ',';
+const string THOUDSAND_SEPARATOR = ",";
 
 /**
  * Measure the execution time of the sort method for one array
@@ -63,12 +63,13 @@ unsigned int measure_array_sorting(unsigned int arr[], unsigned int size) {
  * @return A string presents the number with a thousand separator
  */
 string format_number(unsigned int n) {
+
 	string s = to_string(n);
 
 	int index = s.length() - 3;
 
 	while (index > 0) {
-		s.insert(index, to_string(THOUDSAND_SEPARATOR));
+		s.insert(index, THOUDSAND_SEPARATOR);
 		index -= 3;
 	}
 
